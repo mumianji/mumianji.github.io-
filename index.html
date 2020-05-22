@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
@@ -220,5 +221,115 @@
 
 
   </div>
+</body>
+</html>
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style type="text/css">
+        #div1 {
+            position: relative;
+            height: 300px;
+            width: 300px;
+
+        }
+
+        body{
+            height: 65vh;
+            width: 99vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(#29323c,#485563);
+            color: white;
+        }
+
+        #div1 div {
+            position: absolute;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div class="rotate">我喜欢你</div>
+    <div class="rotate">I love you</div>
+    <div class="rotate">je t'aime</div>
+    <div class="rotate">ich liebe dich</div>
+    <div class="rotate">σε αγαπ? se agapo</div>
+    <div class="rotate">szertlek</div>
+    <div class="rotate">taim i'ngra leat</div>
+    <div class="rotate">mina armadtansind</div>
+    <div class="rotate">mina rakastan sinua</div>
+    <div class="rotate">ik zie</div>
+    <div class="rotate">Ti Amo</div>
+    <div class="rotate">te amo vos amo</div>
+    <div class="rotate">estevi milu</div>
+    <div class="rotate">ik hou van jou</div>
+    <div class="rotate">jeg elsker dig</div>
+    <div class="rotate">eu amo-te</div>
+    <div class="rotate">lingo gramo</div>
+    <div class="rotate">tave myliu</div>
+    <div class="rotate">te sakam</div>
+    <div class="rotate">men seni sevirem</div>
+    <div class="rotate">ami to may halobashi</div>
+    <div class="rotate">kocham cie</div>
+    <div class="rotate">te tu be besc</div>
+    <div class="rotate">vivian</div>
+</div>
+<audio src="https://m10.music.126.net/20200520232612/e13360f8523f480eb0c48a17e02ade93/ymusic/055d/530b/555c/279713f6d4daf029205ab6c1130c4db2.mp3" autoplay id="vd"></audio>
+<script type="text/javascript">
+    var centerx = 200; //圆心X
+    var centery = 200; //圆心Y
+    var r = 130; //半径
+    var oimages = document.querySelectorAll('.rotate') //图片集合
+    var cnt = oimages.length; //图片数
+    var da = 360 / cnt; //图片间隔角度
+    var a0 = 0; //已旋转角度
+    var timer;
+    for (var i = 0; i < cnt; i++) {
+        oimages[i].onmouseover = stop;
+        oimages[i].onmouseout = start;
+    }
+
+    function posimgs() {
+        for (var i = 0; i < cnt; i++) {
+            let cos = Math.cos((da * i + a0) / 180 * Math.PI);
+            let sin = Math.sin((da * i + a0) / 180 * Math.PI)
+            oimages[i].style.left = centerx +r*(2*sin-2*sin*cos)  + "px";
+            oimages[i].style.top = centery - r*(2*cos-2*cos*cos+1) + "px";
+        }
+    }
+
+    // posimgs();
+    function start() {
+        timer = window.setInterval("posimgs();a0++;", 100);
+    }
+
+    function stop() {
+        window.clearInterval(timer);
+    }
+
+    start();
+    function toggleSound() {
+            var music = document.getElementById("vd");//获取ID  
+                //console.log(music);
+                //console.log(music.paused);
+            if (music.paused) { //判读是否播放  
+                music.paused=false;
+                music.play(); //没有就播放 
+            	}         
+        }
+        var div = document.getElementsByTagName('div')
+ div.onmouseMove = setInterval("toggleSound()",10);
+
+
+
+       
+</script>
 </body>
 </html>
